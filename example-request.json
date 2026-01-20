@@ -1,0 +1,540 @@
+{
+  "input": {
+    "workflow": {
+      "1": {
+        "inputs": {
+          "filename": "Qwen-Image-Edit-F2P.safetensors",
+          "model": [
+            "10",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoraLoaderModelOnly"
+        }
+      },
+      "6": {
+        "inputs": {
+          "value": 1,
+          "model": [
+            "72",
+            0
+          ]
+        },
+        "class_type": "DifferentialDiffusion",
+        "_meta": {
+          "title": "DifferentialDiffusion"
+        }
+      },
+      "10": {
+        "inputs": {
+          "filename": "consistence_edit_v2.safetensors",
+          "model": [
+            "64",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoraLoaderModelOnly"
+        }
+      },
+      "19": {
+        "inputs": {
+          "value": true,
+          "positive": [
+            "62",
+            0
+          ],
+          "negative": [
+            "37",
+            0
+          ],
+          "vae": [
+            "66",
+            0
+          ],
+          "pixels": [
+            "178",
+            0
+          ],
+          "mask": [
+            "131",
+            0
+          ]
+        },
+        "class_type": "InpaintModelConditioning",
+        "_meta": {
+          "title": "InpaintModelConditioning"
+        }
+      },
+      "32": {
+        "inputs": {
+          "samples": [
+            "33",
+            0
+          ],
+          "vae": [
+            "66",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "33": {
+        "inputs": {
+          "seed": [
+            "70",
+            0
+          ],
+          "steps": 4,
+          "cfg": 1,
+          "sampler_name": "er_sde",
+          "scheduler": "simple",
+          "denoise": 0.8,
+          "model": [
+            "6",
+            0
+          ],
+          "positive": [
+            "19",
+            0
+          ],
+          "negative": [
+            "19",
+            1
+          ],
+          "latent_image": [
+            "19",
+            2
+          ]
+        },
+        "class_type": "KSampler",
+        "_meta": {
+          "title": "KSampler"
+        }
+      },
+      "37": {
+        "inputs": {
+          "conditioning": [
+            "62",
+            0
+          ]
+        },
+        "class_type": "ConditioningZeroOut",
+        "_meta": {
+          "title": "ConditioningZeroOut"
+        }
+      },
+      "41": {
+        "inputs": {
+          "filename_prefix": "qwen/after_face/qwen",
+          "images": [
+            "32",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "输出=配图"
+        }
+      },
+      "62": {
+        "inputs": {
+          "filename": "장면의 얼굴을 Image1 의 얼굴과 바꾸세요, 피부톤을 섬세하고 현실적으로 만드세요.",
+          "clip": [
+            "65",
+            0
+          ],
+          "vae": [
+            "66",
+            0
+          ]
+        },
+        "class_type": "TextEncodeQwenImageEditPlus",
+        "_meta": {
+          "title": "TextEncodeQwenImageEditPlus"
+        }
+      },
+      "64": {
+        "inputs": {
+          "filename": "qwen_image_edit_2509_fp8_e4m3fn.safetensors"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "UNETLoader"
+        }
+      },
+      "65": {
+        "inputs": {
+          "filename": "qwen_2.5_vl_7b_fp8_scaled.safetensors"
+        },
+        "class_type": "CLIPLoader",
+        "_meta": {
+          "title": "CLIPLoader"
+        }
+      },
+      "66": {
+        "inputs": {
+          "filename": "qwen_image_vae.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "VAELoader"
+        }
+      },
+      "70": {
+        "inputs": {
+          "value": 908609770661765
+        },
+        "class_type": "easy seed",
+        "_meta": {
+          "title": "easy seed"
+        }
+      },
+      "72": {
+        "inputs": {
+          "filename": "Qwen-Image-Lightning-8steps-V1.0.safetensors",
+          "model": [
+            "161",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoraLoaderModelOnly"
+        }
+      },
+      "88": {
+        "inputs": {
+          "value": 1,
+          "model": [
+            "102",
+            0
+          ]
+        },
+        "class_type": "CFGNorm",
+        "_meta": {
+          "title": "CFGNorm"
+        }
+      },
+      "89": {
+        "inputs": {
+          "samples": [
+            "93",
+            0
+          ],
+          "vae": [
+            "90",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "90": {
+        "inputs": {
+          "filename": "qwen_image_vae.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "VAELoader"
+        }
+      },
+      "91": {
+        "inputs": {
+          "filename": "qwen_2.5_vl_7b_fp8_scaled.safetensors"
+        },
+        "class_type": "CLIPLoader",
+        "_meta": {
+          "title": "CLIPLoader"
+        }
+      },
+      "93": {
+        "inputs": {
+          "seed": 146194624599710,
+          "steps": 15,
+          "cfg": 2,
+          "sampler_name": "euler",
+          "scheduler": "simple",
+          "denoise": 1,
+          "model": [
+            "88",
+            0
+          ],
+          "positive": [
+            "104",
+            0
+          ],
+          "negative": [
+            "99",
+            0
+          ],
+          "latent_image": [
+            "112",
+            0
+          ]
+        },
+        "class_type": "KSampler",
+        "_meta": {
+          "title": "KSampler"
+        }
+      },
+      "94": {
+        "inputs": {
+          "filename_prefix": "qwen/before_face/qwen_",
+          "images": [
+            "89",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "99": {
+        "inputs": {
+          "filename": "paint, blurry,  extra limbs, low resolution, cartoon, anime, plastic skin, grainy, noisy, watermarks, text, bad anatomy, unnatural pose, messy hair, harsh shadows, visible brand logos, cluttered background, uncompleted background details, background noise, uncompleted fingers, extra fingers, less fingers, unrealistic, male genitals as female,  artifacts. ",
+          "clip": [
+            "110",
+            1
+          ],
+          "vae": [
+            "90",
+            0
+          ],
+          "image1": [
+            "103",
+            0
+          ]
+        },
+        "class_type": "TextEncodeQwenImageEditPlus",
+        "_meta": {
+          "title": "TextEncodeQwenImageEditPlus"
+        }
+      },
+      "101": {
+        "inputs": {
+          "filename": "Qwen-Rapid-AIO-NSFW-v14.1.safetensors"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "UNETLoader"
+        }
+      },
+      "102": {
+        "inputs": {
+          "value": 3.1,
+          "model": [
+            "110",
+            0
+          ]
+        },
+        "class_type": "ModelSamplingAuraFlow",
+        "_meta": {
+          "title": "ModelSamplingAuraFlow"
+        }
+      },
+      "103": {
+        "inputs": {
+          "image": "qwen__00105_.png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "Load Body"
+        }
+      },
+      "104": {
+        "inputs": {
+          "filename": "A photorealistic lifestyle image of a young woman practicing meditation at home. She is sitting cross-legged on a yoga mat in a bright, modern living room, maintaining an upright posture with her hands resting on her knees in a relaxed meditation pose. She is wearing a matching olive-green sports bra and high-waisted leggings, showing a fit, athletic build. Over-ear headphones cover her ears, suggesting guided meditation or calming music. Her eyes are closed and her facial expression is peaceful and focused. Soft natural daylight enters through large windows behind her, creating a calm, airy atmosphere. Subtle tattoos are visible on her arms, and a pair of red dumbbells rests nearby, hinting at a balanced wellness routine. The scene feels serene, minimal, and authentic, with a shallow depth of field and warm, natural lighting.",
+          "clip": [
+            "110",
+            1
+          ],
+          "vae": [
+            "90",
+            0
+          ],
+          "image1": [
+            "103",
+            0
+          ]
+        },
+        "class_type": "TextEncodeQwenImageEditPlus",
+        "_meta": {
+          "title": "TextEncodeQwenImageEditPlus"
+        }
+      },
+      "110": {
+        "inputs": {
+          "lora_name": "qwen-edit-skin_1.1_000002750.safetensors",
+          "strength_model": 1.4,
+          "strength_clip": 1,
+          "model": [
+            "101",
+            0
+          ],
+          "clip": [
+            "91",
+            0
+          ]
+        },
+        "class_type": "LoraLoader",
+        "_meta": {
+          "title": "LoraLoader"
+        }
+      },
+      "112": {
+        "inputs": {
+          "value": 1080
+        },
+        "class_type": "EmptyLatentImage",
+        "_meta": {
+          "title": "EmptyLatentImage"
+        }
+      },
+      "131": {
+        "inputs": {
+          "value": false,
+          "mask": [
+            "172",
+            1
+          ]
+        },
+        "class_type": "LayerMask: MaskGrow",
+        "_meta": {
+          "title": "LayerMask: MaskGrow"
+        }
+      },
+      "157": {
+        "inputs": {
+          "mask": [
+            "131",
+            0
+          ]
+        },
+        "class_type": "MaskPreview",
+        "_meta": {
+          "title": "MaskPreview"
+        }
+      },
+      "161": {
+        "inputs": {
+          "lora_name": "qwen-edit-skin_1.1_000002750.safetensors",
+          "strength_model": 1.4,
+          "strength_clip": 1,
+          "model": [
+            "1",
+            0
+          ],
+          "clip": [
+            "65",
+            0
+          ]
+        },
+        "class_type": "LoraLoader",
+        "_meta": {
+          "title": "LoraLoader"
+        }
+      },
+      "164": {
+        "inputs": {
+          "text": "retinaface_resnet50",
+          "image": [
+            "89",
+            0
+          ]
+        },
+        "class_type": "CropFace",
+        "_meta": {
+          "title": "CropFace"
+        }
+      },
+      "168": {
+        "inputs": {
+          "value": 0,
+          "src_image": [
+            "171",
+            0
+          ],
+          "sample_image": [
+            "164",
+            0
+          ]
+        },
+        "class_type": "ExpressionEditor",
+        "_meta": {
+          "title": "ExpressionEditor"
+        }
+      },
+      "169": {
+        "inputs": {
+          "images": [
+            "168",
+            0
+          ]
+        },
+        "class_type": "PreviewImage",
+        "_meta": {
+          "title": "PreviewImage"
+        }
+      },
+      "171": {
+        "inputs": {
+          "text": "retinaface_resnet50",
+          "image": [
+            "180",
+            0
+          ]
+        },
+        "class_type": "CropFace",
+        "_meta": {
+          "title": "CropFace"
+        }
+      },
+      "172": {
+        "inputs": {
+          "value": true,
+          "images": [
+            "178",
+            0
+          ]
+        },
+        "class_type": "FaceSegment",
+        "_meta": {
+          "title": "FaceSegment"
+        }
+      },
+      "177": {
+        "inputs": {},
+        "class_type": "Reroute",
+        "_meta": {
+          "title": "Reroute"
+        }
+      },
+      "178": {
+        "inputs": {},
+        "class_type": "Reroute",
+        "_meta": {
+          "title": "Reroute"
+        }
+      },
+      "180": {
+        "inputs": {
+          "image": "Alexander Jang.png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "Load Face"
+        }
+      }
+    }
+  }
+}
